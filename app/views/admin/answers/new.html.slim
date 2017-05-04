@@ -1,0 +1,16 @@
+.ui.segment
+  h2.ui.header
+    | Admin Test
+  = form_for @answer, url: {action: "create"}, html: {class: "ui form"} do |f|
+    = f.hidden_field :question_id, value: @answer.question_id
+    .inline.field.two.fields
+      .field
+        label Answer text
+        = f.text_field :text, placeholder: "Answer text"
+      .inline.field
+        .ui.checkbox
+          = f.check_box :is_correct, tabindex: "0"
+          label Correct
+    = f.button type: :submit, class: "button ui left labeled icon button green" do
+      i.plus.icon
+      | Add

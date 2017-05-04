@@ -1,0 +1,83 @@
+# bundler state
+/.bundle
+/vendor/bundle/
+/vendor/ruby/
+
+# minimal Rails specific artifacts
+/log/*
+/tmp/*
+/vendor/*
+
+# various artifacts
+**.war
+*.rbc
+*.sassc
+.redcar/
+.sass-cache
+/config/config.yml
+/config/mail.yml
+/config/database.yml
+/coverage.data
+/coverage/
+/db/*.javadb/
+/doc/api/
+/doc/app/
+/doc/features.html
+/doc/specs.html
+/public/cache
+/public/stylesheets/compiled
+/public/system/*
+/spec/tmp/*
+/cache
+/capybara*
+/capybara-*.html
+/gems
+/specifications
+rerun.txt
+pickle-email-*.html
+.zeus.sock
+
+
+# Here are some files you may want to ignore globally:
+
+# scm revert files
+**.orig
+
+# Mac finder artifacts
+.DS_Store
+
+# Netbeans project directory
+/nbproject/
+
+# RubyMine project files
+.idea
+
+# Textmate project files
+/*.tmproj
+
+# vim artifacts
+**.swp
+
+# Environment files that may contain sensitive data
+.env
+
+# Ignore npm *.log files
+npm-debug.log
+
+# Ignore secrets
+config/secrets.yml
+
+# Ignore mail
+config/mail.yml
+
+# Ignore uploads
+public/uploads/
+
+# Ignore sidekiq
+config/sidekiq.yml
+
+# Ignore redis
+config/redis.yml
+
+#Ignore precompiled assets
+public/assets

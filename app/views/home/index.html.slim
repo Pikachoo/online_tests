@@ -1,0 +1,20 @@
+.ui.segment.center.aligned
+  h2.ui.header
+    | Test your brain
+
+  .ui.segment
+    table.ui.celled.table
+      thead
+        tr
+          th №
+          th Name
+          th
+      tbody
+        - @tests.each_with_index do |test, index|
+          tr
+            td.collapsing = index + 1
+            td = test.name
+            td.collapsing
+              = link_to href="#{test_path(test.id)}" do
+                button.button.ui.right.button.green
+                  | Begin

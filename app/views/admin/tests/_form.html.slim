@@ -1,0 +1,33 @@
+.ui.segment.center.aligned
+  h2.ui.header
+    | Admin Test
+
+  .ui.equal.height.grid
+    .eight.wide.column
+      .ui.segment
+        = form_for @item, url: {action: "update"}, html: {class: "ui form"} do |f|
+          = f.button type: :submit, class: "button ui left floated right labeled icon button blue" do
+            i.edit.icon
+            | Edit
+          .clearfix
+          .field
+            label Test name
+            = f.text_field :name, placeholder: @item.name
+          .inline.field
+            .ui.checkbox
+              = f.check_box :is_public, tabindex: "0"
+              label Public
+
+    .eight.wide.column
+      .ui.segment
+        = form_tag admin_questions_path, {class: "ui form"} do
+          = hidden_field_tag "question[test_id]", @item.id
+          = button_tag type: :submit, class: "button ui left floated right labeled icon button green" do
+            i.plus.icon
+            | Add
+          .clearfix
+          .field
+            label Question text
+            = text_field_tag "question[text]", nil, placeholder: "Question text"
+
+  = render partial: "admin/tests/questions", locals: {questions: @item.questions}

@@ -1,0 +1,35 @@
+.ui.segment.center.aligned
+  h2.ui.header
+    | Admin Test
+
+  = form_for @test, url: {action: "create"}, html: {class: "ui form"} do |f|
+    .two.fields
+      .field
+        =f.text_field :name,  placeholder: "Test Name"
+      = f.button type: :submit, class: "button ui left floated right labeled icon button green" do
+        i.plus.icon
+        | Add
+
+  .clearfix
+  table.ui.celled.table
+    thead
+      tr
+        th №
+        th Name
+        th Publicated
+        th Actions
+    tbody
+      - @tests.each_with_index do |test, index|
+        tr
+          td.collapsing = index + 1
+          td = test.name
+          td
+            - if test.is_public
+              i.check.circle.icon.green
+            - else
+              i.remove.circle.icon.red
+          td.right.aligned.collapsing
+            = link_to href="#{admin_test_path(test.id)}", method: :delete do
+              i.remove.icon.red
+            = link_to href="#{edit_admin_test_path(test.id)}" do
+              i.edit.icon.blue

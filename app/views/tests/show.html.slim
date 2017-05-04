@@ -1,0 +1,15 @@
+.ui.segment
+  = form_tag tests_pass_path, {class: "ui form"} do
+    = hidden_field_tag :test_id, @test.id
+    h2 = @test.name
+    - @test.questions.each do |question|
+      - if question.answers.length > 0
+        .grouped.fields
+          label = question.text
+          - question.answers.each do |answer|
+            .field
+              .ui.radio.checkbox
+                = radio_button_tag "question_#{question.id}", "#{answer.id}"
+                = label  "question_#{question.id}", answer.text
+
+    = submit_tag 'Check', class: "button ui purple"

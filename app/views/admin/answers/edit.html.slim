@@ -1,0 +1,15 @@
+.ui.segment
+  h2.ui.header
+    | Admin Test
+  = form_for @item, url: {action: "update"}, html: {class: "ui form"} do |f|
+    .inline.field.two.fields
+      .field
+        label Answer text
+        = f.text_field :text, placeholder: @item.text
+      .inline.field
+        .ui.checkbox
+          = f.check_box :is_correct,  tabindex: "0"
+          label Correct
+    = f.button type: :submit, class: "button ui left labeled icon button blue" do
+      i.edit.icon
+      | Edit

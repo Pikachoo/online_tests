@@ -1,0 +1,14 @@
+.ui.secondary.menu
+  = link_to 'Home', root_path, class: "item #{active_menu_link?(root_path)}"
+  - if user_signed_in?
+    - if current_user.admin?
+      = link_to 'Admin Panel', admin_tests_path, class: "item #{active_menu_link?(admin_tests_path)}"
+  .right.menu
+    .item
+      .ui.icon.input
+        input placeholder="Search..." type="text" /
+        i.search.link.icon
+    - if user_signed_in?
+      = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ui item'
+    - else
+      = link_to 'Login', new_user_session_path, class: 'ui item'

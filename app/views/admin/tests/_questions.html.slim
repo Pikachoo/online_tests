@@ -1,0 +1,19 @@
+.clearfix
+table.ui.celled.table
+  thead
+    tr
+      th №
+      th Text
+      th Test name
+      th Actions
+  tbody
+    - questions.each_with_index do |question, index|
+      tr
+        td.collapsing = index + 1
+        td = question.text
+        td = @item.name
+        td.right.aligned.collapsing
+          = link_to href="#{admin_question_path(question)}", method: :delete do
+            i.remove.icon.red
+          = link_to href="#{edit_admin_question_path(question)}" do
+            i.edit.icon.blue

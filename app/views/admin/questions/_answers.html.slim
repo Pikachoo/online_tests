@@ -1,0 +1,28 @@
+= link_to new_admin_answer_path(question_id: @item.id) do
+  button class="button ui left floated right labeled icon button green"
+    i.plus.icon
+    | Add Answer
+.clearfix
+table.ui.celled.table
+  thead
+    tr
+      th №
+      th Text
+      th Correct
+      th Actions
+  tbody
+    - answers.each_with_index do |answer, index|
+      tr
+        td.collapsing = index + 1
+        td = answer.text
+        td
+          - if answer.is_correct
+            i.check.circle.icon.green
+          - else
+            i.remove.circle.icon.red
+
+        td.right.aligned.collapsing
+          = link_to href="#{admin_answer_path(answer)}", method: :delete do
+            i.remove.icon.red
+            = link_to href="#{edit_admin_answer_path(answer)}" do
+              i.edit.icon.blue
